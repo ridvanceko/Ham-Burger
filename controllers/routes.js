@@ -5,11 +5,11 @@ var burger = require("../models/burger.js");
 
 
 router.post("/burgers/update", function(req,res){
-  // console.log(req.params.burger_id);
+ console.log(req.body.burger_id);
 
   burger.update(req.body.burger_id, function(result){
     console.log(result);
-    res.redirect("back");
+    res.sendStatus(200);
   });
 });
 
