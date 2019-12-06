@@ -1,69 +1,27 @@
-<div class="container">
-  
-  <div class="row">
-    <div class="col-xs-12 text-center" id="top-bar">
-      <h1 class="font-weight-bold">HAM-BURGER</h1>
-
+<h1 align="center">Burgers!</h1>
+<div class="jumbotron">
+  <h2>Add a Burger</h2>
+  <form class="create">
+    <div class="form-group">
+      <label for="ca">burger Name:</label>
+      <input type="text" id="bn" name="burger_name">
     </div>
-    <div class="col-xs-6 text-center" class="task">
-      <div class="row">
+    <button class="btn btn-outline-primary" type="submit">Add Burgers</button>
+  </form>
+</div>
 
+<div class="row">
+  <div class="col-6">
+    <div class="jumbotron">
+      <h3>Burgers ready to eat!</h3>
+      <ul>
         {{#each burger_data}}
-        {{#unless this.devoured}}
-        <div class="col-xs-9 text-center">
-
-          <pre>{{this.id}}. {{this.burger_name}}</pre>
-        </div>
-
-        <div class="col-xs-3 text-center">
-          <form method="POST" action="/burgers/update" class="button-size" onsubmit="myFunction()">
-            <input type="hidden" name="burger_id" type="text" value={{this.id}}><br>
-            <button id="devourIt" type="submit" class="btn btn-default"> Devour it</button>
-          </form>
-
-        </div>
-
+        {{#unless dataValues.devoured}}
+        {{> burgers/burger-block devoured=true}}
         {{/unless}}
         {{/each}}
-
-      </div>
-
+      </ul>
     </div>
-    <div class="col-xs-6 text-center" class="task">
-      {{#each burger_data}}
-      {{#if this.devoured}}
-      <input class="form-control" type="text" placeholder="{{this.id}}. {{this.burger_name}}">
-
-      {{/if}}
-      {{/each}}
-
-    </div>
-
   </div>
-
+  
 </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 text-center enter_section">
-      <form action="/burgers/create" method="POST">
-        <input type="text" name="burger_name" class="form-control" value="" id="enter_text">
-        <button type="submit" class="btn btn-primary" id="text-enter-button">SUBMIT</button>
-
-      </form>
-      <p>Which Hamburger would you like to eat?</p>
-
-    </div>
-
-  </div>
-
-</div>
-<script>
-  function myFunction() {
-    console.log("my function")
-    setTimeout(function () {
-      window.location.reload()
-
-    }, 10)
-  }
-</script>
