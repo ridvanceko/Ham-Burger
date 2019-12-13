@@ -1,0 +1,16 @@
+.container{
+  background-image: url("http://www.logosvectorfree.com/wp-content/uploads/2018/05/Burger-King-Logo-top-free.jpeg") ;
+ 
+
+ background-repeat: no-repeat;
+ 
+}
+
+.img-logo img {
+  height: 100px;
+  width: 90px;
+}
+
+.jumbotron {
+  opacity: 0.5;
+}
